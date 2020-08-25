@@ -11,15 +11,12 @@ const MultiplayToNine = () => {
   const [mulMap, setMulMap] = useState(MulToNine)
   const [key, setKey] = useState(getRandomKey())
 
-  //   const operation = mulMap[key]
-  //   console.log("render")
-
   const verify = (ident, result) => {
-    const newMul = mulMap
-    delete newMul[ident]
-    setMulMap(newMul)
+    setMulMap(prev => {
+      delete prev[ident]
+      return prev
+    })
     setKey(getRandomKey())
-    console.log(ident)
   }
 
   return (
