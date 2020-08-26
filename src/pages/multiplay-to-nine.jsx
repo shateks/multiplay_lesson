@@ -22,7 +22,7 @@ const MultiplayToNine = () => {
   return (
     <Layout>
       Hej from multiplay_to_nine
-      <Multiplay mul={mulMap[key]} ident={key} callback={verify} />
+      <Multiplay operation={mulMap[key]} ident={key} callback={verify} />
     </Layout>
   )
 }
