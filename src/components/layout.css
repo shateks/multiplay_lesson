@@ -1,3 +1,11 @@
+:root {
+  --grid-gap: 0.2rem;
+  --btn-deny-bcg-color: #d00;
+  --btn-deny-bcg-color-hover: #b00;
+  --btn-accept-bcg-color: #0d0;
+  --btn-accept-bcg-color-hover: #0b0;
+  --multiplay-operation-height: 2.2rem;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -615,6 +623,117 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.multiplayToNine-wraper {
+  display: flex;
+  flex-flow: column;
+}
+.multiplay__wraper {
+}
+.multiplay__operation {
+  display: flex;
+  font-size: 2rem;
+  border: 1px dashed red;
+  /* align-items: flex-end; */
+}
+.multiplay-task {
+  height: var(--multiplay-operation-height);
+}
+.multiplay__operation--correct {
+  color: #0b0;
+}
+.multiplay__operation--wrong {
+  color: #b00;
+}
+.answere-field__wraper {
+  /* display: grid; */
+  /* grid-auto-flow: row; */
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+  /* flex-direction: column; */
+  border: 1px dashed pink;
+}
+.answere-field-result {
+  /* visibility: hidden; */
+  position: absolute;
+  border: 1px dashed rebeccapurple;
+}
+.answere-field-result__visible {
+  visibility: visible;
+  border: 1px dashed rebeccapurple;
+}
+
+.answere-field-input {
+  /* grid-row: 1; */
+  /* grid-column: 1; */
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  /* height: var(--multiplay-operation-height); */
+  /* position: absolute; */
+}
+#cross {
+  /* grid-row: 1; */
+  /* grid-column: 1; */
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  transform: rotate(45deg);
+  opacity: 50%;
+}
+
+#cross:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #d00;
+}
+
+#cross:after {
+  left: 50%;
+  width: 20%;
+  margin-left: -15%;
+  height: 100%;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  direction: rtl;
+
+  gap: var(--grid-gap);
+}
+.keypad__button--last {
+  grid-column: 2;
+}
+.keypad__button--v-x--wrapper {
+  display: flex;
+  height: 2rem;
+
+  gap: var(--grid-gap);
+  grid-row: 5;
+  grid-column: 1 /-1;
+  justify-content: space-between;
+  justify-items: stretch;
+}
+.keypad__button--x {
+  border-radius: 10px;
+  width: 100%;
+  background-color: var(--btn-deny-bcg-color);
+}
+.keypad__button--x:hover {
+  background-color: var(--btn-deny-bcg-color-hover);
+}
+
+.keypad__button--v {
+  border-radius: 10px;
+  width: 100%;
+  background-color: var(--btn-accept-bcg-color);
+}
+.keypad__button--v:hover {
+  background-color: var(--btn-accept-bcg-color-hover);
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
