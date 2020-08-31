@@ -8,7 +8,7 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
   const [tens, setTens] = useState(0)
 
   const [result, setResult] = useState(0)
-  function cleanValues() {
+  function clearValues() {
     setTens(0)
     setResult("")
   }
@@ -20,7 +20,7 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
       setTens(val)
     }
     if (val === "x") {
-      cleanValues()
+      clearValues()
     }
     if (val === "v" && typeof result === "number") {
       callback(ident, result)
@@ -29,7 +29,7 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
   }
 
   useEffect(() => {
-    cleanValues()
+    clearValues()
     console.log("useEffect")
   }, ident)
 
@@ -43,25 +43,19 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
 
   return (
     <div className="multiplay__wraper">
-      <div className={`multiplay__operation ${colorizeResult(correct, lock)}`}>
+      <div className="multiplay__operation">
         <div className="multiplay-task">
-          <p>
-            {`${operation.first} x ${operation.second} ${
-              lock && !correct ? "\u2260" : "="
-            }`}
-          </p>
+          <p>{`${operation.first} x ${operation.second} = `}</p>
         </div>
         <AnswereField
           input={result}
           result={operation.result}
           correct={correct}
           confirmed={lock}
+          className={colorizeResult(correct, lock)}
         />
-        {/* <div>{`${operation.result}`}</div> */}
       </div>
-      <div className="multiplay__result--backdrop">,,,,,,</div>
       <div>
-        {/* <button onClick={() => callback(ident, 10)}>Delate</button> */}
         <Numkeypad sendKey={evaluate} />
       </div>
     </div>

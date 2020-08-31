@@ -16,7 +16,7 @@ export default function Numkeypad({ sendKey }) {
   keypad.push(
     <div className="keypad__button--v-x--wrapper">
       <button className="keypad__button--v" onClick={() => sendKey("v")}>
-        answare
+        answere
       </button>
       <button className="keypad__button--x" onClick={() => sendKey("x")}>
         delete
