@@ -1,10 +1,9 @@
 import React from "react"
-import MulToNine from "../constants/combinations"
 import { useState, useEffect } from "react"
 import Numkeypad from "./numkeypad"
 import AnswereField from "./answerefield"
 
-const Multiplay = ({ operation, callback, ident, correct, lock }) => {
+const Multiplay = ({ operation, callback, ident, correct, lock, onClick }) => {
   const [tens, setTens] = useState(0)
 
   const [result, setResult] = useState(0)
@@ -29,9 +28,11 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
   }
 
   useEffect(() => {
-    clearValues()
+    if (!lock) {
+      clearValues()
+    }
     console.log("useEffect")
-  }, ident)
+  }, [ident, lock])
 
   const colorizeResult = (correct, confirmed) => {
     if (confirmed) {
@@ -43,7 +44,7 @@ const Multiplay = ({ operation, callback, ident, correct, lock }) => {
 
   return (
     <div className="multiplay__wraper">
-      <div className="multiplay__operation">
+      <div className="multiplay__operation" onClick={onClick}>
         <div className="multiplay-task">
           <p>{`${operation.first} x ${operation.second} = `}</p>
         </div>

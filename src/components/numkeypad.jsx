@@ -5,6 +5,7 @@ export default function Numkeypad({ sendKey }) {
   for (let i = 9; i >= 0; i--) {
     keypad.push(
       <button
+        key={i.toString()}
         className={`keypad__button ${i === 0 ? "keypad__button--last" : ""}`}
         onClick={() => sendKey(i)}
       >
@@ -14,11 +15,19 @@ export default function Numkeypad({ sendKey }) {
   }
 
   keypad.push(
-    <div className="keypad__button--v-x--wrapper">
-      <button className="keypad__button--v" onClick={() => sendKey("v")}>
+    <div key="numpad" className="keypad__button--v-x--wrapper">
+      <button
+        key="v"
+        className="keypad__button--v"
+        onClick={() => sendKey("v")}
+      >
         answere
       </button>
-      <button className="keypad__button--x" onClick={() => sendKey("x")}>
+      <button
+        key="x"
+        className="keypad__button--x"
+        onClick={() => sendKey("x")}
+      >
         delete
       </button>
     </div>

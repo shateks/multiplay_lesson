@@ -18,6 +18,8 @@ const IndexPage = () => (
       Lets learn multiplay to <span>nine</span>
     </Link>
     <br />
+    <Link to="/gues-operation">Lets guess multiplay operands</Link>
+    <br />
     <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>

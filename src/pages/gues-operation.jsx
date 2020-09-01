@@ -3,7 +3,9 @@ import Layout from "../components/layout"
 import Multiplay from "../components/multiplay"
 import MulToNine from "../constants/combinations"
 import Congrat from "../components/congrat"
-const MultiplayToNine = () => {
+import InverseMul from "../components/inversemultiplay"
+
+export default function GuesOperation() {
   const [mulTable, setMulMap] = useState(MulToNine)
   const [correct, setCorrect] = useState(false)
   const [answered, setAnswered] = useState(false)
@@ -51,7 +53,7 @@ const MultiplayToNine = () => {
         <div className="multiplayToNine-wraper">
           {/* Hej from multiplay_to_nine
           <button onClick={getNextHandler}>get next operation</button> */}
-          <Multiplay
+          <InverseMul
             operation={mulTable[key]}
             ident={key}
             callback={verify}
@@ -64,5 +66,3 @@ const MultiplayToNine = () => {
     </Layout>
   )
 }
-
-export default MultiplayToNine
