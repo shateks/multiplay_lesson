@@ -4,6 +4,11 @@ import Multiplay from "../components/multiplay"
 import MulToNine from "../constants/combinations"
 import Congrat from "../components/congrat"
 import InverseMul from "../components/inversemultiplay"
+import {
+  ASK_FIRST_AGR,
+  ASK_SECOND_AGR,
+  ASK_ANSWERE,
+} from "../constants/teachingmodes"
 
 export default function GuesOperation() {
   const [mulTable, setMulMap] = useState(MulToNine)
@@ -18,8 +23,12 @@ export default function GuesOperation() {
 
   const [key, setKey] = useState(getRandomKey())
 
-  const verify = (ident, result) => {
-    if (result == mulTable[ident].result) {
+  const verify = (ident, answere) => {
+    if (
+      answere.result == mulTable[ident].result &&
+      answere.first == mulTable[ident].first &&
+      answere.second == mulTable[ident].second
+    ) {
       setCorrect(true)
     } else {
       setCorrect(false)
@@ -51,11 +60,10 @@ export default function GuesOperation() {
         <Congrat />
       ) : (
         <div className="multiplayToNine-wraper">
-          {/* Hej from multiplay_to_nine
-          <button onClick={getNextHandler}>get next operation</button> */}
           <InverseMul
             operation={mulTable[key]}
             ident={key}
+            mode={ASK_FIRST_AGR}
             callback={verify}
             correct={correct}
             lock={answered}

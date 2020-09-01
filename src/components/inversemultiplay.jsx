@@ -2,6 +2,11 @@ import React from "react"
 import { useState, useEffect } from "react"
 import Numkeypad from "./numkeypad"
 import AnswereField from "./answerefield"
+import {
+  ASK_FIRST_AGR,
+  ASK_SECOND_AGR,
+  ASK_ANSWERE,
+} from "../constants/teachingmodes"
 
 const InverseMultiplay = ({
   operation,
@@ -32,7 +37,31 @@ const InverseMultiplay = ({
       clearValues()
     }
     if (val === "v" && typeof answere === "number") {
-      callback(ident, answere)
+      let ret_obj
+      switch (mode) {
+        case ASK_FIRST_AGR:
+          ret_obj = {
+            first: answere,
+            second: operation.second,
+            result: operation.result,
+          }
+          break
+        case ASK_SECOND_AGR:
+          ret_obj = {
+            first: operation.first,
+            second: answere,
+            result: operation.result,
+          }
+          break
+        case ASK_ANSWERE:
+          ret_obj = {
+            first: operation.first,
+            second: operation.second,
+            result: answere,
+          }
+          break
+      }
+      callback(ident, ret_obj)
       console.log(val)
     }
   }
@@ -69,14 +98,14 @@ const InverseMultiplay = ({
 
   const askFirstArgument = (
     <div className="multiplay__operation" onClick={onClick}>
+      <AnswereField
+        input={answere}
+        result={operation.first}
+        correct={correct}
+        confirmed={lock}
+        className={colorizeResult(correct, lock)}
+      />
       <div className="multiplay-task">
-        <AnswereField
-          input={answere}
-          result={operation.result}
-          correct={correct}
-          confirmed={lock}
-          className={colorizeResult(correct, lock)}
-        />
         <p>{` x ${operation.second} = ${operation.result}`}</p>
       </div>
     </div>
@@ -86,23 +115,36 @@ const InverseMultiplay = ({
     <div className="multiplay__operation" onClick={onClick}>
       <div className="multiplay-task">
         <p>{`${operation.first} x `}</p>
-        <AnswereField
-          input={answere}
-          result={operation.result}
-          correct={correct}
-          confirmed={lock}
-          className={colorizeResult(correct, lock)}
-        />
+      </div>
+      <AnswereField
+        input={answere}
+        result={operation.second}
+        correct={correct}
+        confirmed={lock}
+        className={colorizeResult(correct, lock)}
+      />
+      <div className="multiplay-task">
         <p>{` = ${operation.result}`}</p>
       </div>
     </div>
   )
 
+  const getOpration = () => {
+    switch (mode) {
+      case ASK_FIRST_AGR:
+        return askFirstArgument
+      case ASK_SECOND_AGR:
+        return askSecondArgument
+      case ASK_ANSWERE:
+        return askResult
+    }
+  }
+
   return (
     <div className="multiplay__wraper">
-      {/* {askResult()} */}
-      {askFirstArgument}
-      {/* {askSecondArgument} */}
+      {/* {askResult} */}
+      {/* {askFirstArgument} */}
+      {getOpration()}
       {/* <div className="multiplay__operation" onClick={onClick}>
         <div className="multiplay-task">
           <p>{`${operation.first} x ${operation.second} = `}</p>
