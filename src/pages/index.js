@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import { ASK_ARGUMENT, ASK_ANSWERE } from "../constants/teachingmodes"
 
 const IndexPage = () => (
   <Layout>
@@ -18,7 +19,13 @@ const IndexPage = () => (
       Lets learn multiplay to <span>nine</span>
     </Link>
     <br />
-    <Link to="/gues-operation">Lets guess multiplay operands</Link>
+    <Link to="/gues-operation" state={{ teachmode: `${ASK_ANSWERE}` }}>
+      Lets guess multiplay result
+    </Link>
+    <br />
+    <Link to="/gues-operation" state={{ teachmode: `${ASK_ARGUMENT}` }}>
+      Lets guess multiplay operands
+    </Link>
     <br />
     <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>

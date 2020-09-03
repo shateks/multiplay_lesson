@@ -33,6 +33,6 @@ const genMultiplayCombinations = function (firstNumber, secondNumber) {
   return ret
 }
 // const MulToNine = genMultiplayCombinations(1, 9)
-const MulToNine = genMultiplayCombinations(2, 9)
+const MulToNine = genMultiplayCombinations(8, 9)
 export { genMultiplayCombinations }
 export default MulToNine

@@ -18,7 +18,6 @@ const InverseMultiplay = ({
   onClick,
 }) => {
   const [tens, setTens] = useState(0)
-  //   const [mode, setMode]= useState(0)
   const [answere, setAnswere] = useState(undefined)
 
   function clearValues() {
@@ -142,21 +141,7 @@ const InverseMultiplay = ({
 
   return (
     <div className="multiplay__wraper">
-      {/* {askResult} */}
-      {/* {askFirstArgument} */}
       {getOpration()}
-      {/* <div className="multiplay__operation" onClick={onClick}>
-        <div className="multiplay-task">
-          <p>{`${operation.first} x ${operation.second} = `}</p>
-        </div>
-        <AnswereField
-          input={answere}
-          result={operation.result}
-          correct={correct}
-          confirmed={lock}
-          className={colorizeResult(correct, lock)}
-        />
-      </div> */}
       <div>
         <Numkeypad sendKey={evaluate} />
       </div>
