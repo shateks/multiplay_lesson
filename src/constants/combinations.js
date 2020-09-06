@@ -8,25 +8,8 @@ class MulOperation {
   }
 }
 
-// class MulCollection {}
-
 const genMultiplayCombinations = function (firstNumber, secondNumber) {
   const ret = {}
-  // let a, b
-  // if (firstNumber > secondNumber) {
-  //   a = secondNumber
-  //   b = firstNumber
-  // } else {
-  //   a = firstNumber
-  //   b = secondNumber
-  // }
-  // for (let i = a; i <= b; i++) {
-  //   for (let j = i; j <= b; j++) {
-  //     let m = new MulOperation(i, j)
-  //     ret[m.id] = m
-  //   }
-  // }
-  // debugger
   firstNumber = firstNumber ?? secondNumber
   secondNumber = secondNumber ?? firstNumber
   if (firstNumber > secondNumber)
@@ -40,7 +23,6 @@ const genMultiplayCombinations = function (firstNumber, secondNumber) {
   }
   return ret
 }
-// const MulToNine = genMultiplayCombinations(1, 9)
-const MulToNine = genMultiplayCombinations(8, 9)
+const MulToNine = genMultiplayCombinations(1, 9)
 export { genMultiplayCombinations }
 export default MulToNine

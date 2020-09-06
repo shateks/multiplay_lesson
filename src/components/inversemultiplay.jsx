@@ -82,15 +82,25 @@ const InverseMultiplay = ({
 
   const askResult = (
     <div className="multiplay__operation" onClick={onClick}>
-      <div className="multiplay-task">
-        <p>{`${operation.first} x ${operation.second} = `}</p>
+      {/* <div className="multiplay-task"> */}
+      {/* <p>{`${operation.first} x ${operation.second} = `}</p> */}
+      <div className="multiplay-item multiplay-first-lower">
+        {operation.first}
       </div>
+      <div className="multiplay-item multiplay-mul">x</div>
+      <div className="multiplay-item multiplay-sec-lower">
+        {operation.second}
+      </div>
+      <div className="multiplay-item multiplay-eq">=</div>
+      {/* </div> */}
       <AnswereField
         input={answere}
         result={operation.result}
         correct={correct}
         confirmed={lock}
-        className={colorizeResult(correct, lock)}
+        classInput="multiplay-result-lower"
+        classResult="multiplay-result-upper"
+        // className={`multiplay-item ${colorizeResult(correct, lock)}`}
       />
     </div>
   )
@@ -102,28 +112,40 @@ const InverseMultiplay = ({
         result={operation.first}
         correct={correct}
         confirmed={lock}
-        className={colorizeResult(correct, lock)}
+        classInput="multiplay-first-lower"
+        classResult="multiplay-first-upper"
       />
-      <div className="multiplay-task">
-        <p>{` x ${operation.second} = ${operation.result}`}</p>
+      {/* <div className="multiplay-task"> */}
+      <div className="multiplay-item multiplay-mul">x</div>
+      <div className="multiplay-item multiplay-sec-lower">
+        {operation.second}
       </div>
+      <div className="multiplay-item multiplay-eq">=</div>
+      <div className="multiplay-item multiplay-result-lower">
+        {operation.result}
+      </div>
+      {/* </div> */}
     </div>
   )
 
   const askSecondArgument = (
     <div className="multiplay__operation" onClick={onClick}>
-      <div className="multiplay-task">
-        <p>{`${operation.first} x `}</p>
+      {/* <div className="multiplay-task"> */}
+      <div className="multiplay-item multiplay-first-lower">
+        {operation.first}
       </div>
+      <div className="multiplay-item multiplay-mul">x</div>
       <AnswereField
         input={answere}
         result={operation.second}
         correct={correct}
         confirmed={lock}
-        className={colorizeResult(correct, lock)}
+        classInput="multiplay-sec-lower"
+        classResult="multiplay-sec-upper"
       />
-      <div className="multiplay-task">
-        <p>{` = ${operation.result}`}</p>
+      <div className="multiplay-item multiplay-eq">=</div>
+      <div className="multiplay-item multiplay-result-lower">
+        {operation.result}
       </div>
     </div>
   )

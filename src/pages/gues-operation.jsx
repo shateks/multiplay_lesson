@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import Multiplay from "../components/multiplay"
-import MulToNine from "../constants/combinations"
+import MultiplayTable, {
+  genMultiplayCombinations,
+} from "../constants/combinations"
 import Congrat from "../components/congrat"
 import InverseMul from "../components/inversemultiplay"
+
 import {
   ASK_FIRST_AGR,
   ASK_ARGUMENT,
@@ -11,9 +14,24 @@ import {
   ASK_ANSWERE,
 } from "../constants/teachingmodes"
 
-export default function GuesOperation({ location }) {
-  const [initLength, setInitLength] = useState(Object.keys(MulToNine).length)
-  const [mulTable, setMulMap] = useState({ ...MulToNine })
+export default function GuesOperation({
+  location: {
+    state: { teachmode, range },
+  },
+}) {
+  const generateMultable = range => {
+    let retMul = {}
+    if (range.length === 0) return {}
+    for (let elem of range) {
+      retMul = { ...retMul, ...genMultiplayCombinations(elem) }
+    }
+    return retMul
+  }
+  const MultiplayTable = generateMultable(range)
+  const [initLength, setInitLength] = useState(
+    Object.keys(MultiplayTable).length
+  )
+  const [mulTable, setMulMap] = useState({ ...MultiplayTable })
   const [correct, setCorrect] = useState(false)
   const [answered, setAnswered] = useState(false)
   const [allDone, setAllDone] = useState(false)
@@ -25,9 +43,9 @@ export default function GuesOperation({ location }) {
   }
 
   function getProperMode() {
-    if (location.state.teachmode === ASK_ANSWERE) {
+    if (teachmode === ASK_ANSWERE) {
       return ASK_ANSWERE
-    } else if (location.state.teachmode === ASK_ARGUMENT) {
+    } else if (teachmode === ASK_ARGUMENT) {
       const arr = [ASK_FIRST_AGR, ASK_SECOND_AGR]
       return arr[Math.floor(Math.random() * arr.length)]
     }
@@ -67,10 +85,17 @@ export default function GuesOperation({ location }) {
   }
 
   useEffect(() => {
-    setMulMap({ ...MulToNine })
-    setInitLength(Object.keys(MulToNine).length)
+    setMulMap({ ...MultiplayTable })
+    setInitLength(Object.keys(MultiplayTable).length)
   }, [])
 
+  if (range.length === 0) {
+    return (
+      <Layout>
+        <h1>Sorry you must choose some material to exercise</h1>
+      </Layout>
+    )
+  }
   return (
     <Layout>
       {allDone ? (
