@@ -1,116 +1,98 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import { ASK_ARGUMENT, ASK_ANSWERE } from "../constants/teachingmodes"
-import ToggleSwitch from "../components/toggleSwitch"
+import conf from "../constants/configconsts"
+import { getRange, toggleNumer, getNumer } from "../utils/configuration"
 
 const IndexPage = () => {
-  const [nines, setNines] = useState(false)
-  const [eights, setEights] = useState(false)
-  const [sevens, setSevens] = useState(false)
-  const [sixes, setSixes] = useState(false)
-  const [fives, setFives] = useState(false)
-  const [fours, setFours] = useState(false)
-  const [threes, setThrees] = useState(false)
-  const [twos, setTwos] = useState(false)
-  const [ones, setOnes] = useState(false)
-  const range = [
-    nines && 9,
-    eights && 8,
-    sevens && 7,
-    sixes && 6,
-    fives && 5,
-    fours && 4,
-    threes && 3,
-    twos && 2,
-    ones && 1,
-  ].filter(elem => elem != false)
+  useEffect(() => {
+    console.log(getRange())
+  })
+  const [dummy, setDummy] = useState(0)
+
+  const updateCheckBox = name => {
+    toggleNumer(name)
+    setDummy(dummy => ++dummy)
+  }
 
   return (
     <Layout>
       <SEO title="Home" />
-      {/* <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p> */}
-      {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}> */}
-      {/* <Image /> */}
       <input
         id="nines"
         type="checkbox"
-        value={nines}
-        onClick={() => setNines(prev => !prev)}
+        checked={getNumer(conf.nines)}
+        onClick={() => updateCheckBox(conf.nines)}
       />
       <label htmlFor="nines">Nines</label>
       <input
         id="eights"
         type="checkbox"
-        value={eights}
-        onClick={() => setEights(prev => !prev)}
+        checked={getNumer(conf.eights)}
+        onClick={() => updateCheckBox(conf.eights)}
       />
       <label htmlFor="eights">Eights</label>
       <input
         id="sevens"
         type="checkbox"
-        value={sevens}
-        onClick={() => setSevens(prev => !prev)}
+        checked={getNumer(conf.sevens)}
+        onClick={() => updateCheckBox(conf.sevens)}
       />
       <label htmlFor="sevens">Sevens</label>
       <input
         id="sixes"
         type="checkbox"
-        value={sixes}
-        onClick={() => setSixes(prev => !prev)}
+        checked={getNumer(conf.sixes)}
+        onClick={() => updateCheckBox(conf.sixes)}
       />
       <label htmlFor="sixes">Sixes</label>
       <input
         id="fives"
         type="checkbox"
-        value={fives}
-        onClick={() => setFives(prev => !prev)}
+        checked={getNumer(conf.fives)}
+        onClick={() => updateCheckBox(conf.fives)}
       />
       <label htmlFor="fives">Fives</label>
       <input
         id="fours"
         type="checkbox"
-        value={fours}
-        onClick={() => setFours(prev => !prev)}
+        checked={getNumer(conf.fours)}
+        onClick={() => updateCheckBox(conf.fours)}
       />
       <label htmlFor="fours">Fours</label>
       <input
         id="threes"
         type="checkbox"
-        value={threes}
-        onClick={() => setThrees(prev => !prev)}
+        checked={getNumer(conf.threes)}
+        onClick={() => updateCheckBox(conf.threes)}
       />
       <label htmlFor="threes">Threes</label>
       <input
         id="twos"
         type="checkbox"
-        value={twos}
-        onClick={() => setTwos(prev => !prev)}
+        checked={getNumer(conf.twos)}
+        onClick={() => updateCheckBox(conf.twos)}
       />
       <label htmlFor="twos">Twos</label>
       <input
         id="ones"
         type="checkbox"
-        value={ones}
-        onClick={() => setOnes(prev => !prev)}
+        checked={getNumer(conf.ones)}
+        onClick={() => updateCheckBox(conf.ones)}
       />
       <label htmlFor="ones">Ones</label>
       <br />
-      <ToggleSwitch onClick={() => console.log("object")} />
-      {/* </div> */}
-      <Link to="/multiplay-to-nine">
+      {/* <Link to="/multiplay-to-nine">
         Lets learn multiplay to <span>nine</span>
-      </Link>
+      </Link> */}
       <br />
       <Link
         to="/gues-operation"
         state={{
           teachmode: `${ASK_ANSWERE}`,
-          range: range,
+          range: getRange(),
         }}
       >
         Lets guess multiplay result
@@ -120,14 +102,14 @@ const IndexPage = () => {
         to="/gues-operation"
         state={{
           teachmode: `${ASK_ARGUMENT}`,
-          range: range,
+          range: getRange(),
         }}
       >
         Lets guess multiplay operands
       </Link>
       <br />
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+      {/* <Link to="/page-2/">Go to page 2</Link> <br /> */}
+      {/* <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}
     </Layout>
   )
 }
