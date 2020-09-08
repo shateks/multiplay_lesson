@@ -20,92 +20,109 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <input
-        id="nines"
-        type="checkbox"
-        checked={getNumer(conf.nines)}
-        onClick={() => updateCheckBox(conf.nines)}
-      />
-      <label htmlFor="nines">Nines</label>
-      <input
-        id="eights"
-        type="checkbox"
-        checked={getNumer(conf.eights)}
-        onClick={() => updateCheckBox(conf.eights)}
-      />
-      <label htmlFor="eights">Eights</label>
-      <input
-        id="sevens"
-        type="checkbox"
-        checked={getNumer(conf.sevens)}
-        onClick={() => updateCheckBox(conf.sevens)}
-      />
-      <label htmlFor="sevens">Sevens</label>
-      <input
-        id="sixes"
-        type="checkbox"
-        checked={getNumer(conf.sixes)}
-        onClick={() => updateCheckBox(conf.sixes)}
-      />
-      <label htmlFor="sixes">Sixes</label>
-      <input
-        id="fives"
-        type="checkbox"
-        checked={getNumer(conf.fives)}
-        onClick={() => updateCheckBox(conf.fives)}
-      />
-      <label htmlFor="fives">Fives</label>
-      <input
-        id="fours"
-        type="checkbox"
-        checked={getNumer(conf.fours)}
-        onClick={() => updateCheckBox(conf.fours)}
-      />
-      <label htmlFor="fours">Fours</label>
-      <input
-        id="threes"
-        type="checkbox"
-        checked={getNumer(conf.threes)}
-        onClick={() => updateCheckBox(conf.threes)}
-      />
-      <label htmlFor="threes">Threes</label>
-      <input
-        id="twos"
-        type="checkbox"
-        checked={getNumer(conf.twos)}
-        onClick={() => updateCheckBox(conf.twos)}
-      />
-      <label htmlFor="twos">Twos</label>
-      <input
-        id="ones"
-        type="checkbox"
-        checked={getNumer(conf.ones)}
-        onClick={() => updateCheckBox(conf.ones)}
-      />
-      <label htmlFor="ones">Ones</label>
-      <br />
-      {/* <Link to="/multiplay-to-nine">
-        Lets learn multiplay to <span>nine</span>
-      </Link> */}
-      <br />
+      <div className="option-wrapper">
+        <div className="option-elem">
+          <input
+            id="nines"
+            type="checkbox"
+            checked={getNumer(conf.nines)}
+            onClick={() => updateCheckBox(conf.nines)}
+          />
+          <label htmlFor="nines">Nines</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="eights"
+            type="checkbox"
+            checked={getNumer(conf.eights)}
+            onClick={() => updateCheckBox(conf.eights)}
+          />
+          <label htmlFor="eights">Eights</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="sevens"
+            type="checkbox"
+            checked={getNumer(conf.sevens)}
+            onClick={() => updateCheckBox(conf.sevens)}
+          />
+          <label htmlFor="sevens">Sevens</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="sixes"
+            type="checkbox"
+            checked={getNumer(conf.sixes)}
+            onClick={() => updateCheckBox(conf.sixes)}
+          />
+          <label htmlFor="sixes">Sixes</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="fives"
+            type="checkbox"
+            checked={getNumer(conf.fives)}
+            onClick={() => updateCheckBox(conf.fives)}
+          />
+          <label htmlFor="fives">Fives</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="fours"
+            type="checkbox"
+            checked={getNumer(conf.fours)}
+            onClick={() => updateCheckBox(conf.fours)}
+          />
+          <label htmlFor="fours">Fours</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="threes"
+            type="checkbox"
+            checked={getNumer(conf.threes)}
+            onClick={() => updateCheckBox(conf.threes)}
+          />
+          <label htmlFor="threes">Threes</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="twos"
+            type="checkbox"
+            checked={getNumer(conf.twos)}
+            onClick={() => updateCheckBox(conf.twos)}
+          />
+          <label htmlFor="twos">Twos</label>
+        </div>
+        <div className="option-elem">
+          <input
+            id="ones"
+            type="checkbox"
+            checked={getNumer(conf.ones)}
+            onClick={() => updateCheckBox(conf.ones)}
+          />
+          <label htmlFor="ones">Ones</label>
+        </div>
+      </div>
       <Link
+        className="link"
         to="/gues-operation"
         state={{
           teachmode: `${ASK_ANSWERE}`,
           range: getRange(),
         }}
       >
-        Lets guess multiplay result
+        Calculate multiplay result
       </Link>
       <br />
       <Link
+        className="link"
         to="/gues-operation"
         state={{
           teachmode: `${ASK_ARGUMENT}`,
           range: getRange(),
         }}
       >
-        Lets guess multiplay operands
+        Calculate multiplay operands
       </Link>
       <br />
       {/* <Link to="/page-2/">Go to page 2</Link> <br /> */}
