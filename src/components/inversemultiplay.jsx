@@ -87,7 +87,7 @@ const InverseMultiplay = ({
       <div className="multiplay-item multiplay-first-lower">
         {operation.first}
       </div>
-      <div className="multiplay-item multiplay-mul">x</div>
+      <div className="multiplay-item multiplay-mul">&times;</div>
       <div className="multiplay-item multiplay-sec-lower">
         {operation.second}
       </div>
@@ -116,7 +116,7 @@ const InverseMultiplay = ({
         classResult="multiplay-first-upper"
       />
       {/* <div className="multiplay-task"> */}
-      <div className="multiplay-item multiplay-mul">x</div>
+      <div className="multiplay-item multiplay-mul">&times;</div>
       <div className="multiplay-item multiplay-sec-lower">
         {operation.second}
       </div>
@@ -134,7 +134,7 @@ const InverseMultiplay = ({
       <div className="multiplay-item multiplay-first-lower">
         {operation.first}
       </div>
-      <div className="multiplay-item multiplay-mul">x</div>
+      <div className="multiplay-item multiplay-mul">&times;</div>
       <AnswereField
         input={answere}
         result={operation.second}
