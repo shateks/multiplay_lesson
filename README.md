@@ -1,6 +1,6 @@
 # Simple multiplay table in Gatsby
 
-Main of app purpose is to teach kids multiplay table, in simple calculating result and answering the argument of multiplay opretion.
+Main purpose of app is to teach kids multiplay table, in simple calculating result and answering the argument of multiplay opretion.
 
 ## Technological Stack
 
