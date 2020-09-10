@@ -1,7 +1,8 @@
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-intl"
 import PropTypes from "prop-types"
 import React from "react"
 import { FaHome } from "react-icons/fa"
+import Languageswitch from "./languageswitch"
 
 const Header = ({ siteTitle }) => (
   <header className="header">
@@ -12,6 +13,9 @@ const Header = ({ siteTitle }) => (
       <Link className="header-link" to="/">
         <FaHome id="home-icon" />
       </Link>
+    </div>
+    <div id="intl-button">
+      <Languageswitch />
     </div>
   </header>
 )

@@ -1,6 +1,8 @@
 import React from "react"
+import { useIntl } from "gatsby-plugin-intl"
 
 export default function Numkeypad({ sendKey }) {
+  const intl = useIntl()
   const keypad = []
   for (let i = 9; i >= 0; i--) {
     keypad.push(
@@ -21,14 +23,14 @@ export default function Numkeypad({ sendKey }) {
         className="keypad__button--v"
         onClick={() => sendKey("v")}
       >
-        answere
+        {intl.formatMessage({ id: "answere" })}
       </button>
       <button
         key="x"
         className="keypad__button--x"
         onClick={() => sendKey("x")}
       >
-        delete
+        {intl.formatMessage({ id: "delete" })}
       </button>
     </div>
   )

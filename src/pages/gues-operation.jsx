@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react"
+import { navigate, useIntl } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
-import Multiplay from "../components/multiplay"
-import MultiplayTable, {
-  genMultiplayCombinations,
-} from "../constants/combinations"
+import { genMultiplayCombinations } from "../constants/combinations"
 import Congrat from "../components/congrat"
 import InverseMul from "../components/inversemultiplay"
-
 import {
   ASK_FIRST_AGR,
   ASK_ARGUMENT,
@@ -19,6 +16,8 @@ export default function GuesOperation({
     state: { teachmode, range },
   },
 }) {
+  range = range ?? []
+  const intl = useIntl()
   const generateMultable = range => {
     let retMul = {}
     if (range.length === 0) return {}
@@ -73,7 +72,6 @@ export default function GuesOperation({
         if (Object.keys(_mulTable).length > 1) {
           delete _mulTable[key]
         } else {
-          console.log("No more operations !!!")
           setAllDone(true)
         }
       }
@@ -92,7 +90,9 @@ export default function GuesOperation({
   if (range.length === 0) {
     return (
       <Layout>
-        <h1>Sorry you must choose some material to exercise</h1>
+        <div className="guess-operation-sory" onClick={() => navigate("/")}>
+          <h1>{intl.formatMessage({ id: "sorry_choose_oper" })}</h1>
+        </div>
       </Layout>
     )
   }
@@ -102,8 +102,16 @@ export default function GuesOperation({
         <Congrat />
       ) : (
         <>
-          <div>
-            {Object.keys(mulTable).length} of {initLength}
+          <div
+            className={`guess-operation-next ${
+              answered ? "guess-operation-next-visible" : ""
+            }`}
+            onClick={getNextHandler}
+          ></div>
+          <div className="guess-operation-of">
+            {`${Object.keys(mulTable).length} ${intl.formatMessage({
+              id: "of",
+            })} ${initLength}`}
           </div>
           <div className="multiplayToNine-wraper">
             <InverseMul

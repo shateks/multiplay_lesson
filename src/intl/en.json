@@ -1,0 +1,19 @@
+{
+  "title": "Multiplay lesson",
+  "nines": "Nines",
+  "eights": "Eights",
+  "sevens": "Sevens",
+  "sixes": "Sixes",
+  "fives": "Fives",
+  "fours": "Fours",
+  "threes": "Threes",
+  "twos": "Twos",
+  "ones": "Ones",
+  "of": "of",
+  "calcul_result": "Calculate multiplay result",
+  "calcul_operands": "Calculate multiplay operands",
+  "answere": "answere",
+  "delete": "erase",
+  "congratulation": "Congratulation you have done all multiplay operation !",
+  "sorry_choose_oper": "Sorry you must choose some material to exercise"
+}

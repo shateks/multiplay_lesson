@@ -72,18 +72,8 @@ const InverseMultiplay = ({
     console.log("useEffect")
   }, [ident, lock])
 
-  const colorizeResult = (correct, confirmed) => {
-    if (confirmed) {
-      if (correct) return "multiplay__operation--correct"
-      else return "multiplay__operation--wrong"
-    }
-    return ""
-  }
-
   const askResult = (
     <div className="multiplay__operation" onClick={onClick}>
-      {/* <div className="multiplay-task"> */}
-      {/* <p>{`${operation.first} x ${operation.second} = `}</p> */}
       <div className="multiplay-item multiplay-first-lower">
         {operation.first}
       </div>
@@ -92,7 +82,6 @@ const InverseMultiplay = ({
         {operation.second}
       </div>
       <div className="multiplay-item multiplay-eq">=</div>
-      {/* </div> */}
       <AnswereField
         input={answere}
         result={operation.result}
@@ -100,7 +89,6 @@ const InverseMultiplay = ({
         confirmed={lock}
         classInput="multiplay-result-lower"
         classResult="multiplay-result-upper"
-        // className={`multiplay-item ${colorizeResult(correct, lock)}`}
       />
     </div>
   )
@@ -115,7 +103,6 @@ const InverseMultiplay = ({
         classInput="multiplay-first-lower"
         classResult="multiplay-first-upper"
       />
-      {/* <div className="multiplay-task"> */}
       <div className="multiplay-item multiplay-mul">&times;</div>
       <div className="multiplay-item multiplay-sec-lower">
         {operation.second}
@@ -124,13 +111,11 @@ const InverseMultiplay = ({
       <div className="multiplay-item multiplay-result-lower">
         {operation.result}
       </div>
-      {/* </div> */}
     </div>
   )
 
   const askSecondArgument = (
     <div className="multiplay__operation" onClick={onClick}>
-      {/* <div className="multiplay-task"> */}
       <div className="multiplay-item multiplay-first-lower">
         {operation.first}
       </div>

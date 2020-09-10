@@ -1,0 +1,19 @@
+{
+  "title": "Nauka mnożenia",
+  "nines": "Dziewiątki",
+  "eights": "Ósemki",
+  "sevens": "Siódemki",
+  "sixes": "Szóstki",
+  "fives": "Piątki",
+  "fours": "Czwórki",
+  "threes": "Trójki",
+  "twos": "Dwójki",
+  "ones": "Jedynki",
+  "of": "z",
+  "calcul_result": "Oblicz wynik",
+  "calcul_operands": "Oblicz argument",
+  "answere": "odpowiedź",
+  "delete": "usuń",
+  "congratulation": "Gratulacje zrobiłeś wszystkie działania !",
+  "sorry_choose_oper": "Przykro mi ale musisz wybrać zakres ćwiczeń"
+}

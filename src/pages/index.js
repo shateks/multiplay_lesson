@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import { Link } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { ASK_ARGUMENT, ASK_ANSWERE } from "../constants/teachingmodes"
 import conf from "../constants/configconsts"
 import { getRange, toggleNumer, getNumer } from "../utils/configuration"
+import { useIntl } from "react-intl"
 
 const IndexPage = () => {
+  const intl = useIntl()
   useEffect(() => {
     console.log(getRange())
   })
@@ -28,7 +30,7 @@ const IndexPage = () => {
             checked={getNumer(conf.nines)}
             onClick={() => updateCheckBox(conf.nines)}
           />
-          <label htmlFor="nines">Nines</label>
+          <label htmlFor="nines">{intl.formatMessage({ id: "nines" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -37,7 +39,7 @@ const IndexPage = () => {
             checked={getNumer(conf.eights)}
             onClick={() => updateCheckBox(conf.eights)}
           />
-          <label htmlFor="eights">Eights</label>
+          <label htmlFor="eights">{intl.formatMessage({ id: "eights" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -46,7 +48,7 @@ const IndexPage = () => {
             checked={getNumer(conf.sevens)}
             onClick={() => updateCheckBox(conf.sevens)}
           />
-          <label htmlFor="sevens">Sevens</label>
+          <label htmlFor="sevens">{intl.formatMessage({ id: "sevens" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -55,7 +57,7 @@ const IndexPage = () => {
             checked={getNumer(conf.sixes)}
             onClick={() => updateCheckBox(conf.sixes)}
           />
-          <label htmlFor="sixes">Sixes</label>
+          <label htmlFor="sixes">{intl.formatMessage({ id: "sixes" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -64,7 +66,7 @@ const IndexPage = () => {
             checked={getNumer(conf.fives)}
             onClick={() => updateCheckBox(conf.fives)}
           />
-          <label htmlFor="fives">Fives</label>
+          <label htmlFor="fives">{intl.formatMessage({ id: "fives" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -73,7 +75,7 @@ const IndexPage = () => {
             checked={getNumer(conf.fours)}
             onClick={() => updateCheckBox(conf.fours)}
           />
-          <label htmlFor="fours">Fours</label>
+          <label htmlFor="fours">{intl.formatMessage({ id: "fours" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -82,7 +84,7 @@ const IndexPage = () => {
             checked={getNumer(conf.threes)}
             onClick={() => updateCheckBox(conf.threes)}
           />
-          <label htmlFor="threes">Threes</label>
+          <label htmlFor="threes">{intl.formatMessage({ id: "threes" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -91,7 +93,7 @@ const IndexPage = () => {
             checked={getNumer(conf.twos)}
             onClick={() => updateCheckBox(conf.twos)}
           />
-          <label htmlFor="twos">Twos</label>
+          <label htmlFor="twos">{intl.formatMessage({ id: "twos" })}</label>
         </div>
         <div className="option-elem">
           <input
@@ -100,7 +102,7 @@ const IndexPage = () => {
             checked={getNumer(conf.ones)}
             onClick={() => updateCheckBox(conf.ones)}
           />
-          <label htmlFor="ones">Ones</label>
+          <label htmlFor="ones">{intl.formatMessage({ id: "ones" })}</label>
         </div>
       </div>
       <Link
@@ -111,7 +113,7 @@ const IndexPage = () => {
           range: getRange(),
         }}
       >
-        Calculate multiplay result
+        {intl.formatMessage({ id: "calcul_result" })}
       </Link>
       <br />
       <Link
@@ -122,11 +124,9 @@ const IndexPage = () => {
           range: getRange(),
         }}
       >
-        Calculate multiplay operands
+        {intl.formatMessage({ id: "calcul_operands" })}
       </Link>
       <br />
-      {/* <Link to="/page-2/">Go to page 2</Link> <br /> */}
-      {/* <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}
     </Layout>
   )
 }

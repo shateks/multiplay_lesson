@@ -8,11 +8,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { useIntl } from "react-intl"
 import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  const intl = useIntl()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,14 +26,8 @@ const Layout = ({ children }) => {
 
   return (
     <div id="app-wrapper">
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Header siteTitle={intl.formatMessage({ id: "title" })} />
+      <div id="main-wrapper">
         <main>{children}</main>
       </div>
       <footer>
