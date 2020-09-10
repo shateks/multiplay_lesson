@@ -3,7 +3,7 @@ import { navigate, useIntl } from "gatsby-plugin-intl"
 import Layout from "../components/layout"
 import { genMultiplayCombinations } from "../constants/combinations"
 import Congrat from "../components/congrat"
-import InverseMul from "../components/inversemultiplay"
+import InverseMul from "../components/multiplaytask"
 import {
   ASK_FIRST_AGR,
   ASK_ARGUMENT,

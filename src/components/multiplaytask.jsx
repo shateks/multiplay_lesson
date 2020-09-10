@@ -8,7 +8,7 @@ import {
   ASK_ANSWERE,
 } from "../constants/teachingmodes"
 
-const InverseMultiplay = ({
+const MultiplayTask = ({
   operation,
   callback,
   ident,
@@ -156,4 +156,4 @@ const InverseMultiplay = ({
   )
 }
 
-export default InverseMultiplay
+export default MultiplayTask
