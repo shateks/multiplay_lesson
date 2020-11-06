@@ -1,3 +1,15 @@
+const numbersMap = new Map([
+  ["nines", 9],
+  ["eights", 8],
+  ["sevens", 7],
+  ["sixes", 6],
+  ["fives", 5],
+  ["fours", 4],
+  ["threes", 3],
+  ["twos", 2],
+  ["ones", 1],
+])
+
 const numbers = {
   nines: {
     str: "nines",
@@ -47,4 +59,15 @@ const twos = "twos"
 const ones = "ones"
 
 export default numbers
-export { nines, eights, sevens, sixes, fives, fours, threes, twos, ones }
+export {
+  nines,
+  eights,
+  sevens,
+  sixes,
+  fives,
+  fours,
+  threes,
+  twos,
+  ones,
+  numbersMap,
+}

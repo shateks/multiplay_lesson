@@ -13,10 +13,17 @@ import {
 
 export default function GuesOperation({
   location: {
-    state: { teachmode, range },
+    state,
   },
 }) {
-  range = range ?? []
+  let teachmode = undefined
+    let range = []  
+  if(state != undefined){
+    
+    teachmode = state.teachmode
+     range = state.range ?? []
+  }
+  
   const intl = useIntl()
   const generateMultable = range => {
     let retMul = {}
@@ -47,6 +54,9 @@ export default function GuesOperation({
     } else if (teachmode === ASK_ARGUMENT) {
       const arr = [ASK_FIRST_AGR, ASK_SECOND_AGR]
       return arr[Math.floor(Math.random() * arr.length)]
+    }
+    else{
+      return undefined
     }
   }
 
@@ -87,7 +97,7 @@ export default function GuesOperation({
     setInitLength(Object.keys(MultiplayTable).length)
   }, [])
 
-  if (range.length === 0) {
+  if (range.length === 0 || mode === undefined) {
     return (
       <Layout>
         <div className="guess-operation-sory" onClick={() => navigate("/")}>
