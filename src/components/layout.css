@@ -34,9 +34,14 @@ body {
   height: 100%;
 }
 #main-wrapper {
+  flex-grow: 1;
   margin: 0 auto;
+  min-width: 90vw;
   max-width: 960px;
   padding: 0 1.0875rem 1.45rem;
+}
+main {
+  height: 100%;
 }
 footer {
   margin-bottom: 1rem;
@@ -73,10 +78,7 @@ h1 {
   padding: 1.45rem;
   text-decoration: none;
 }
-#header-buttons-wrapper {
-}
-.header-wrapper {
-}
+
 #header-title {
   grid-area: T;
   overflow-wrap: anywhere;
@@ -91,7 +93,7 @@ h1 {
 }
 #home-button a:active {
   color: white;
-  opacity: 80%;
+  opacity: 0.8;
 }
 #intl-button {
   grid-area: I;
@@ -129,7 +131,7 @@ h1 {
   left: 0;
   top: 0;
   background: grey;
-  opacity: 90%;
+  opacity: 0.9;
 }
 .modal {
   display: flex;
@@ -149,8 +151,7 @@ h1 {
   text-align: center;
   line-height: 2rem;
 }
-#modal-caption {
-}
+
 .modal-option {
   display: flex;
   align-items: center;
@@ -160,10 +161,7 @@ h1 {
   height: 6rem;
   border-radius: 3rem;
 }
-#modal-option-en {
-}
-#modal-option-pl {
-}
+
 .backdrop-hidden {
   display: none;
 }
@@ -213,6 +211,8 @@ h1 {
   display: block;
 }
 .guess-operation-sory {
+  display: flex;
+  align-items: center;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -282,18 +282,12 @@ h1 {
 .answere-field__wraper {
   display: contents;
 }
-.answere-field-result {
-}
-
-.answere-field-input {
-}
 #answere-cross {
   width: 3rem;
   height: 3rem;
   transform: rotate(45deg);
-  opacity: 50%;
+  opacity: 0.5;
 }
-
 #answere-cross:after {
   content: "";
   position: absolute;
@@ -325,7 +319,7 @@ h1 {
   width: 3rem;
   height: 3rem;
   transform: rotate(45deg);
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 #answere-tick:after {
@@ -369,7 +363,7 @@ h1 {
   gap: var(--grid-gap);
 }
 .keypad__button {
-  height: 2.5rem;
+  height: 3rem;
   border-radius: 1rem;
   font-size: 2rem;
   font-weight: bolder;
@@ -381,7 +375,7 @@ h1 {
 }
 .keypad__button--v-x--wrapper {
   display: flex;
-  height: 2rem;
+  height: 5rem;
   gap: var(--grid-gap);
   grid-row: 5;
   grid-column: 1 /-1;
@@ -409,9 +403,14 @@ h1 {
   background-color: var(--btn-accept-bcg-color-hover);
 }
 .congrat {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-align: center;
   margin-top: 1rem;
   min-height: 10rem;
 }
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 90%;
