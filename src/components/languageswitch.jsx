@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { VscGlobe, VscTriangleDown } from "react-icons/vsc"
+import { VscTriangleDown } from "react-icons/vsc"
 import { BiWorld } from "react-icons/bi"
 import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 
@@ -24,7 +24,7 @@ export default function Languageswitch() {
             return (
               <>
                 <div
-                  class="modal-option"
+                  className="modal-option"
                   id="modal-option-en"
                   onClick={() => {
                     console.log("english")
@@ -34,7 +34,7 @@ export default function Languageswitch() {
                   english
                 </div>
                 <div
-                  class="modal-option"
+                  className="modal-option"
                   id="modal-option-pl"
                   onClick={() => changeLocale("pl")}
                 >
