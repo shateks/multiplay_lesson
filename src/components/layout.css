@@ -226,11 +226,14 @@ h1 {
 }
 .multiplay__wraper {
   display: flex;
+  align-items: center;
   flex-flow: column;
   justify-content: center;
 }
 .multiplay__operation {
   display: grid;
+  width: 90vw;
+  max-width: 600px;
   grid-template-columns: 1fr 0.5fr 1fr 0.5fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
@@ -356,7 +359,8 @@ h1 {
 }
 .keypad {
   margin: auto;
-  max-width: 20rem;
+  width: 90vw;
+  max-width: 600px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   direction: rtl;
